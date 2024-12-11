@@ -1,6 +1,5 @@
 #include "stack.h"
-
-#include <stdio.h>
+#include "stdio.h"
 
 int main() {
     Stack stack;
@@ -10,6 +9,7 @@ int main() {
     push(&stack, 20);
     push(&stack, 30);
 
+ 
     printf("After pushing elements:\n");
     traverseStack(&stack);
 
@@ -21,7 +21,8 @@ int main() {
     Node* searchResult = searchByValue(&stack, 20);
     if (searchResult != NULL) {
         printf("Element with value 20 found.\n");
-    } else {
+    }
+    else {
         printf("Element with value 20 not found.\n");
     }
 
@@ -29,8 +30,12 @@ int main() {
     if (topElement != NULL) {
         printf("Top element: %d\n", topElement->data);
     }
+    else {
+        printf("Stack is empty.\n");
+    }
+
+    destroyStack(&stack);
+    printf("Stack destroyed.\n");
 
     return 0;
 }
-
-
